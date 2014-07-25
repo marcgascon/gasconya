@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="view/style.css">
   </head>
 
-  <body>    
+  <body ng-controller="TodoCtrl">    
       <h1>PTASKS</h1>
 
       <hr>
@@ -33,14 +33,23 @@
       
       <h3>Audio and Output file specifications:</h3>
       
-      <div ng-controller="TodoCtrl">
-        <label>Language:</label>
+      <div>
+        <label>Select Language:</label>
         <select>
           <option ng-repeat="lang in languages" value"{{lang.text}}">{{lang.text}}</option>
         </select>
       </div>
       <div>
-
+        <p>Audio input:</p>
+        <ul>
+          <li>
+            <input type="radio" name="audio_input" checked="checked"><span>Same as video source</span>
+          </li>
+          <li>
+              <input type="radio" name="audio_input"  ><span>Use a separate Audio File/s</span>
+              <input type="text" placeholder="input audiofile">
+          </li>
+        </ul>
       </div>
       <div>
         <label>Stereo:</label>
@@ -55,6 +64,19 @@
       </div>
       <div><p><i>*If both checkboxes (Stereo and Mono) are checked you are doing a RMX</i></p></div>
       
+      <div>
+        <span>Has subtitles?</span>
+        <input type="text" placeholder="Input File to Subtitles">
+        <select>
+          <option ng-repeat="sub_cod in subtitles_coding" value"{{sub_cod.text}}">{{sub_cod.text}}</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Video Output:</label>
+        <input type="text" placeholder="name of the output file">
+      </div>
+
       <hr>
 
       <div>

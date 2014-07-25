@@ -3,6 +3,13 @@ function TodoCtrl($scope){
 
 	$scope.languages= [	{text: "Spanish"},
 						{text: "English"},
-						{text: "French"}
-					  ];
+						{text: "French"},
+						{text: "Italian"},
+						{text: "German"}
+					];
+
+	$scope.subtitles_coding = [	{text: "UTF-8"},
+								{text: "ISO-8859-15"},
+								{text: "Latin1"}
+					  		];
 }
