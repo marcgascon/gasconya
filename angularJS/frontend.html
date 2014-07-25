@@ -1,0 +1,67 @@
+<!doctype html>
+<html ng-app>
+
+  <head>
+    <script src="library/angular.min.js"></script>
+    <script type="text/javascript" src="controller/controller.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="view/style.css">
+  </head>
+
+  <body>    
+      <h1>PTASKS</h1>
+
+      <hr>
+
+      <div>
+        <h3>Video Specifications:</h3>
+        <label>Path to input video file:</label>
+          <input type="text" placeholder="Input video file">
+        <label>is HD?</label>
+          <input type="checkbox">
+      </div>
+      <div>
+        <label>Cropping:</label>
+          <input type="text" placeholder="Cropping Value">
+        <label>TCIN:</label>
+          <input type="text" placeholder="Initial Time">
+        <label>TCOUT:</label>
+          <input type="text" placeholder="Final Time">
+      </div>
+
+      <hr>
+      
+      <h3>Audio and Output file specifications:</h3>
+      
+      <div ng-controller="TodoCtrl">
+        <label>Language:</label>
+        <select>
+          <option ng-repeat="lang in languages" value"{{lang.text}}">{{lang.text}}</option>
+        </select>
+      </div>
+      <div>
+
+      </div>
+      <div>
+        <label>Stereo:</label>
+          <input type="checkbox">
+          <input type="text" placeholder="Map">
+      </div>
+      <div>
+        <label>Mono:</label>
+        <input type="checkbox">
+        <input type="text" placeholder="Left ch.">
+        <input type="text" placeholder="Right ch.">
+      </div>
+      <div><p><i>*If both checkboxes (Stereo and Mono) are checked you are doing a RMX</i></p></div>
+      
+      <hr>
+
+      <div>
+        <h3>E-mails to notify this task</h3>
+        <textarea>content.ingestion+admin@wuaki.tv</textarea>
+      </div>
+
+  </body>
+
+</html
