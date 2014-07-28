@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="ptasksApp">
 
   <head>
     <script src="library/angular.min.js"></script>
@@ -8,81 +8,92 @@
     <link rel="stylesheet" type="text/css" href="view/style.css">
   </head>
 
-  <body ng-controller="TodoCtrl">    
+  <body ng-controller="formValues">    
       <h1>PTASKS</h1>
 
-      <hr>
+      <form novalidate class="ptasks_form">
 
-      <div>
-        <h3>Video Specifications:</h3>
-        <label>Path to input video file:</label>
-          <input type="text" placeholder="Input video file">
-        <label>is HD?</label>
+
+
+      <hr>
+      
+        <div>
+          <h3>Video Specifications:</h3>
+          <label>Path to input video file:</label>
+            <input type="text" placeholder="Input video file" ng-model="video.inputVideoFile">
+          <label>is HD?</label>
+            <input type="checkbox" ng-model="video.hd">
+        </div>
+        <div>
+          <label>Cropping:</label>
+            <input type="text" placeholder="Cropping Value" ng-model="video.crop">
+          <label>TCIN:</label>
+            <input type="text" placeholder="Initial Time" ng-model="video.tcin">
+          <label>TCOUT:</label>
+            <input type="text" placeholder="Final Time" ng-model="video.tcout">
+        </div>
+        <pre>{{video | json}}</pre>
+
+
+
+        <hr>
+
+        <h3>Audio and Output file specifications:</h3>
+        
+        <div>
+          <label>Select Language:</label>
+          <select>
+            <option ng-repeat="lang in languages" value"{{lang.text}}">{{lang.text}}</option>
+          </select>
+        </div>
+        <div>
+          <p>Audio input:</p>
+          <ul>
+            <li>
+              <input type="radio" name="audio_input" checked="checked"><span>Same as video source</span>
+            </li>
+            <li>
+                <input type="radio" name="audio_input"  ><span>Use a separate Audio File/s</span>
+                <input type="text" placeholder="input audiofile">
+            </li>
+          </ul>
+        </div>
+        <div>
+          <label>Stereo:</label>
+            <input type="checkbox">
+            <input type="text" placeholder="Map">
+        </div>
+        <div>
+          <label>Mono:</label>
           <input type="checkbox">
-      </div>
-      <div>
-        <label>Cropping:</label>
-          <input type="text" placeholder="Cropping Value">
-        <label>TCIN:</label>
-          <input type="text" placeholder="Initial Time">
-        <label>TCOUT:</label>
-          <input type="text" placeholder="Final Time">
-      </div>
+          <input type="text" placeholder="Left ch.">
+          <input type="text" placeholder="Right ch.">
+        </div>
+        <div><p><i>*If both checkboxes (Stereo and Mono) are checked you are doing a RMX</i></p></div>
+        
+        <div>
+          <span>Has subtitles?</span>
+          <input type="text" placeholder="Input File to Subtitles">
+          <select>
+            <option ng-repeat="sub_cod in subtitles_coding" value="{{sub_cod.val}}">{{sub_cod.text}}</option>
+          </select>
+        </div>
 
-      <hr>
-      
-      <h3>Audio and Output file specifications:</h3>
-      
-      <div>
-        <label>Select Language:</label>
-        <select>
-          <option ng-repeat="lang in languages" value"{{lang.text}}">{{lang.text}}</option>
-        </select>
-      </div>
-      <div>
-        <p>Audio input:</p>
-        <ul>
-          <li>
-            <input type="radio" name="audio_input" checked="checked"><span>Same as video source</span>
-          </li>
-          <li>
-              <input type="radio" name="audio_input"  ><span>Use a separate Audio File/s</span>
-              <input type="text" placeholder="input audiofile">
-          </li>
-        </ul>
-      </div>
-      <div>
-        <label>Stereo:</label>
-          <input type="checkbox">
-          <input type="text" placeholder="Map">
-      </div>
-      <div>
-        <label>Mono:</label>
-        <input type="checkbox">
-        <input type="text" placeholder="Left ch.">
-        <input type="text" placeholder="Right ch.">
-      </div>
-      <div><p><i>*If both checkboxes (Stereo and Mono) are checked you are doing a RMX</i></p></div>
-      
-      <div>
-        <span>Has subtitles?</span>
-        <input type="text" placeholder="Input File to Subtitles">
-        <select>
-          <option ng-repeat="sub_cod in subtitles_coding" value"{{sub_cod.text}}">{{sub_cod.text}}</option>
-        </select>
-      </div>
+        <div>
+          <label>Video Output:</label>
+          <input type="text" placeholder="name of the output file">
+        </div>
 
-      <div>
-        <label>Video Output:</label>
-        <input type="text" placeholder="name of the output file">
-      </div>
 
-      <hr>
 
-      <div>
-        <h3>E-mails to notify this task</h3>
-        <textarea>content.ingestion+admin@wuaki.tv</textarea>
-      </div>
+        <hr>
+
+        <div>
+          <h3>E-mails to notify this task</h3>
+          <textarea>content.ingestion+admin@wuaki.tv</textarea>
+        </div>
+
+      </form>
 
   </body>
 
