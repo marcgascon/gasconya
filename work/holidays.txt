@@ -1,0 +1,10 @@
+Holidays: 23 days per year
+
+Year: 2016
+Consumed days: 5
+  20160509 # Colorado
+  20160510 # Colorado
+  20160511 # Colorado
+  20160512 # Colorado
+  20160513 # Colorado
+Available days: 18
